@@ -6,7 +6,7 @@ function getAndroidSDK {
   DEPS="$ANDROID_HOME/installed-dependencies"
 
   if [ ! -e $DEPS ]; then
-    echo y | android update sdk --no-ui --all --filter extra-android-m2repository
+    echo y | android update sdk --no-ui --all --filter extra-android-m2repository --filter android-19 --filter sys-img-armeabi-v7a-android-19
     echo no | android create avd -n testAVD -f -t android-19 --abi default/armeabi-v7a &&
     touch $DEPS
   fi
